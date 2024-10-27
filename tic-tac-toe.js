@@ -61,4 +61,29 @@ document.addEventListener("DOMContentLoaded", () => {
     function handleMouseLeave() {
         this.classList.remove("hover");
     }
+
+    //PART FIVE - Restart the game
+    function resetGame() {
+        squares.forEach((square) => {
+            square.classList.remove("X", "O");
+            square.textContent = "";
+        });
+
+        currentPlayer = "X";
+        isGameOver = false;
+        status.classList.remove("you-won");
+        status.textContent = "Move your mouse over a square and click to play an X or an O.";
+    }
+
+    squares.forEach((square) => {
+        square.addEventListener("mouseover", handleMouseOver);
+        square.addEventListener("mouseleave", handleMouseLeave);
     });
+
+    squares.forEach((square) => {
+        square.classList.add("square");
+        square.addEventListener("click", handleSquareClick);
+    });
+
+    newGameButton.addEventListener("click", resetGame);
+});
