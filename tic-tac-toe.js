@@ -17,6 +17,42 @@ document.addEventListener("DOMContentLoaded", () => {
             checkWinner();
         }
     }
+    //PART FOUR - Check for the winner and update the status
+    function checkWinner() {
+        const winningCombination = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6],
+        ];
+
+        for (const combination of winningCombination) {
+            const [a, b, c] = combination;
+            if (
+                squares[a].classList.contains("X") &&
+                squares[b].classList.contains("X") &&
+                squares[c].classList.contains("X")
+            ) {
+                isGameOver = true;
+                status.classList.add("you-won");
+                status.textContent = "Congratulations! X is the Winner!";
+                return;
+            } else if (
+                squares[a].classList.contains("O") &&
+                squares[b].classList.contains("O") &&
+                squares[c].classList.contains("O")
+            ) {
+                isGameOver = true;
+                status.classList.add("you-won");
+                status.textContent = "Congratulations! O is the Winner!";
+                return;
+            }
+        }
+    }
     //PART THREE - Change the style when you move your mouse over a square
     function handleMouseOver() {
         this.classList.add("hover");
