@@ -17,4 +17,12 @@ document.addEventListener("DOMContentLoaded", () => {
             checkWinner();
         }
     }
+    //PART THREE - Change the style when you move your mouse over a square
+    function handleMouseOver() {
+        this.classList.add("hover");
+    }
+
+    function handleMouseLeave() {
+        this.classList.remove("hover");
+    }
     });
