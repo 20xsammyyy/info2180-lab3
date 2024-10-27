@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //PART TWO - Add an X or O to a square when clicked
     function handleSquareClick() {
-        //PART SIX: Disallow Cheating
+        //PART SIX - Disallow Cheating
         if (!isGameOver && !this.classList.contains("X") && !this.classList.contains("O")) {
             this.classList.add(currentPlayer);
             this.textContent = currentPlayer;
