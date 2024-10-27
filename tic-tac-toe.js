@@ -1,8 +1,20 @@
 //PART ONE - Layout the Board
 document.addEventListener("DOMContentLoaded", () => {
-    const squares = document.querySelectorAll("#game-board div");
+    const squares = document.querySelectorAll("#board div");
+    let currentPlayer = "X";
+    let isGameOver = false;
+    const status = document.getElementById("status");
+    
+    const newGameButton = document.querySelector(".btn");
 
-    squares.forEach(square => {
-        square.classList.add("square");
+    //PART TWO - Add an X or O to a square when clicked
+    function handleSquareClick() {
+        //PART SIX: Disallow Cheating
+        if (!isGameOver && !this.classList.contains("X") && !this.classList.contains("O")) {
+            this.classList.add(currentPlayer);
+            this.textContent = currentPlayer;
+            currentPlayer = currentPlayer === "X" ? "O" : "X";
+            checkWinner();
+        }
+    }
     });
-});
